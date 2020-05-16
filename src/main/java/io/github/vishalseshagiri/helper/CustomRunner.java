@@ -42,4 +42,8 @@ public class CustomRunner implements Runnable {
 		return t.getState();
 	}
 
+	public void joinThread() throws InterruptedException {
+		t.join();
+	}
+
 }
