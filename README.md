@@ -31,6 +31,7 @@ Explanation
 #### Use Case 2 Diagram
 ![](/src/main/resources/images/use-case-2.png)
 - no synchronization required and saves space since we can hold the context and need not pass the object across multiple services requiring access to it
+- use local variables if possible and avoid threadlocal altogether
 
 #### Spring Context Holder Diagram
 ![](/src/main/resources/images/spring-context-holder.png)

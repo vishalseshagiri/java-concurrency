@@ -99,6 +99,11 @@ public class Lec2ThreadLocal {
 		this.countryContextHolder.holder.set(country);
 	}
 
+	private void cleanUpCountryContextHolder() {
+		// clean up once out of scope
+		countryContextHolder.holder.remove();
+	}
+
 	private String service1(int countryId) {
 		Country country = countryDb.get(countryId);
 		setCountryContextHolder(country);
@@ -113,6 +118,7 @@ public class Lec2ThreadLocal {
 
 	private String service3() {
 		Country country = countryContextHolder.holder.get();
+		cleanUpCountryContextHolder();
 		return ", countryCode='" + country.getCountryCode() + '\'' +
 			 '}';
 	}
